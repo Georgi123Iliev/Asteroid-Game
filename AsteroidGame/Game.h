@@ -33,7 +33,7 @@ class Game
 	std::chrono::steady_clock::time_point lastAsteroidSpawned;
 	 constexpr unsigned int maxAsteroids() const
 	{
-		return 15;
+		return 150;
 	}
 	 constexpr unsigned int winHeight() const
 	{

@@ -56,11 +56,7 @@ class Asteroid
 
 public:
 	Asteroid(const sf::Vector2f pos, const sf::Vector2f& offset);
-	void Move()
-	{
-		sprite.move(direction);
-		hitBox.move(direction);
-	}
+	void Move();
 	//(x - center_x)² + (y - center_y)² < radius²
 	[[nodiscard]] bool ContainsPoint(const sf::Vector2f& point) const noexcept;
 

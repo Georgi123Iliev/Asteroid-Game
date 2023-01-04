@@ -18,6 +18,12 @@ Asteroid::Asteroid(const sf::Vector2f pos, const sf::Vector2f& offset)
 
 }
 
+void Asteroid::Move()
+{
+	sprite.move(direction);
+	hitBox.move(direction);
+}
+
 [[nodiscard]] bool Asteroid::ContainsPoint(const sf::Vector2f& point) const noexcept
 {
 	sf::Vector2f centre = { (hitBox.getPosition().x + hitBox.getOrigin().x),(hitBox.getPosition().y + hitBox.getOrigin().y) };
@@ -53,11 +59,14 @@ bool Asteroid::isOutOfBoundsY(const sf::Vector2f& bounds) const noexcept
 void Asteroid::BounceX() noexcept
 {
 	direction.x *= -1;
+	
+
 }
 
 void Asteroid::BounceY() noexcept
 {
 	direction.y *= -1;
+	
 }
 
 inline bool Asteroid::operator==(const Asteroid& other) const noexcept
