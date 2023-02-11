@@ -6,7 +6,7 @@
 #include <SFML/Audio.hpp>
 #include<SFML/Network.hpp>
 #include<iostream>
-
+#include<chrono>
 
 class imageResources
 {
@@ -14,6 +14,8 @@ private:
 	sf::Image img;
 	sf::Texture texture;
 	bool textureSet=false;
+
+
 	
 public:
 	imageResources()
@@ -50,9 +52,12 @@ class Asteroid
 	
 	
 	sf::Sprite sprite;
-   
 	sf::CircleShape hitBox;
+
 	sf::Vector2f direction;
+
+	std::chrono::time_point<std::chrono::system_clock> lastBounceX;
+	std::chrono::time_point<std::chrono::system_clock> lastBounceY;
 
 public:
 	Asteroid(const sf::Vector2f pos, const sf::Vector2f& offset);

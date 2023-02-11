@@ -58,14 +58,24 @@ bool Asteroid::isOutOfBoundsY(const sf::Vector2f& bounds) const noexcept
 
 void Asteroid::BounceX() noexcept
 {
-	direction.x *= -1;
+	auto currentTime = std::chrono::system_clock::now();
+	if (std::chrono::duration_cast<std::chrono::seconds>(currentTime - lastBounceX).count() >= 3)
+	{
+		direction.x *= -1;
+		lastBounceX = currentTime;
+	}
 	
 
 }
 
 void Asteroid::BounceY() noexcept
 {
-	direction.y *= -1;
+	auto currentTime = std::chrono::system_clock::now();
+	if (std::chrono::duration_cast<std::chrono::milliseconds>(currentTime - lastBounceY).count() >= 3000)
+	{
+		direction.y *= -1;
+		lastBounceY = currentTime;
+	}
 	
 }
 
