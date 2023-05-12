@@ -157,7 +157,7 @@ void Game::Run()
 
 
 
-		if (std::chrono::duration_cast<std::chrono::seconds>(std::chrono::steady_clock::now() - lastAsteroidSpawned).count() >= 1
+		if (std::chrono::duration_cast<std::chrono::seconds>(std::chrono::steady_clock::now() - lastAsteroidSpawned).count() >= 0
 			&& asteroids.size() < maxAsteroids())
 			SpawnAsteroid();
 

@@ -16,13 +16,12 @@ private:
 	bool textureSet=false;
 
 
-	
-public:
 	imageResources()
 	{
 
 		if (!textureSet)
 		{
+			std::cout << "Created" << '\n';
 			if (!img.loadFromFile("Textures\\asteroid.png"))
 			{
 				// error...
@@ -34,12 +33,19 @@ public:
 		}
 		textureSet = true;
 	}
-	const auto& GetTexture() const
+public:
+	static imageResources& Instance()
+	{
+		static imageResources singleton;
+		return singleton;
+	}
+	
+	const auto& GetTexture() 
 	{
 		return texture;
 	}
 };
-static const imageResources imgResource;
+
 
 
 

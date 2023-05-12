@@ -4,7 +4,7 @@ Asteroid::Asteroid(const sf::Vector2f pos, const sf::Vector2f& offset)
 	:direction(offset)
 {
 
-	sprite.setTexture(imgResource.GetTexture());
+	sprite.setTexture(imageResources::Instance().GetTexture());
 	sprite.setPosition(pos);
 	sprite.setOrigin({ 15,13 });
 
