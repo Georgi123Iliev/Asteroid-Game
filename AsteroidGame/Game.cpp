@@ -2,7 +2,7 @@
 
 constexpr unsigned int Game::maxAsteroids() const noexcept
 {
-	return 150;
+	return 15;
 }
 
 constexpr unsigned int Game::winHeight() const noexcept
@@ -157,7 +157,7 @@ void Game::Run()
 
 
 
-		if (std::chrono::duration_cast<std::chrono::seconds>(std::chrono::steady_clock::now() - lastAsteroidSpawned).count() >= 0
+		if (std::chrono::duration_cast<std::chrono::seconds>(std::chrono::steady_clock::now() - lastAsteroidSpawned).count() >= 1
 			&& asteroids.size() < maxAsteroids())
 			SpawnAsteroid();
 

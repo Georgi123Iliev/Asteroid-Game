@@ -21,7 +21,7 @@ private:
 
 		if (!textureSet)
 		{
-			std::cout << "Created" << '\n';
+			
 			if (!img.loadFromFile("Textures\\asteroid.png"))
 			{
 				// error...
