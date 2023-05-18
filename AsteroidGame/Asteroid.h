@@ -40,7 +40,7 @@ public:
 		return singleton;
 	}
 	
-	const auto& GetTexture() 
+	const auto& GetTexture() const
 	{
 		return texture;
 	}
@@ -80,6 +80,6 @@ public:
 	void BounceX() noexcept;
 	void BounceY() noexcept;
 	
-	[[nodiscard]] inline bool operator == (const Asteroid& other) const noexcept;
+	[[nodiscard]] bool operator == (const Asteroid& other) const noexcept;
 };
 

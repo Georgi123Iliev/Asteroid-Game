@@ -12,7 +12,7 @@
 #define CWHOLE(c) c.cbegin(),c.cend()
 #define WHOLE(c) c.begin(),c.end()
 
-enum rotation
+enum class rotation
 {
 	left = -3,
 	right = 3

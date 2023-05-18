@@ -33,12 +33,7 @@ const sf::CircleShape& Projectile::Drawable() const noexcept
 	return shape;
 }
 
-void Projectile::operator=(const Projectile& other) noexcept
-{
-	shape = other.shape;
-	direction = other.direction;
 
-}
 
 bool Projectile::collides(const sf::Vector2f& center, const float& radius) const noexcept
 {

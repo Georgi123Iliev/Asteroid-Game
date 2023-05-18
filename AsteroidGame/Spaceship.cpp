@@ -122,9 +122,7 @@ void Spaceship::Rotate(rotation rot)
 	{
 
 
-		float d = static_cast<float>(sqrt(pow((origin.x - points[i].x), 2) + pow((origin.y - points[i].y), 2)));
-
-		auto toRadians = rot / 57.f;
+	
 		sf::Transform transform;
 		transform.rotate(static_cast<float>(rot), origin);
 
@@ -194,7 +192,7 @@ void Spaceship::Shoot()
 {
 	if (reloaded())
 	{
-		projectiles.push_back(Projectile(hitBox.getRotation(), points[0])); //points[0] is the front of the ship
+		projectiles.emplace_back(hitBox.getRotation(), points[0]); //points[0] is the front of the ship
 
 		lastShot = std::chrono::system_clock::now();
 	}

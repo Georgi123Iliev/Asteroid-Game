@@ -25,13 +25,13 @@ void Game::SpawnAsteroid()
 
 	auto config = rand() % 4;
 	if (config == 0)
-		asteroids.push_back(Asteroid(toV2(14, randY), dir));
+		asteroids.emplace_back(toV2(14, randY), dir);
 	else if (config == 1)
-		asteroids.push_back(Asteroid(toV2(randX, 14.f), dir));
+		asteroids.emplace_back(toV2(randX, 14.f), dir);
 	else if (config == 2)
-		asteroids.push_back(Asteroid(toV2(winWidht() - 14, randY), dir));
+		asteroids.emplace_back(toV2(winWidht() - 14, randY), dir);
 	else if (config == 3)
-		asteroids.push_back(Asteroid(toV2(randX, winHeight() - 14), dir));
+		asteroids.emplace_back(toV2(randX, winHeight() - 14), dir);
 
 	lastAsteroidSpawned = std::chrono::steady_clock::now();
 
@@ -77,10 +77,10 @@ void Game::MakeMovements()
 		spaceship.finishMovement();
 
 	if (APressed)
-		spaceship.Rotate(left);
+		spaceship.Rotate(rotation::left);
 
 	if (DPressed)
-		spaceship.Rotate(right);
+		spaceship.Rotate(rotation::right);
 	std::for_each(WHOLE(asteroids), [this](auto& asteroid) {asteroid.Move(); });
 	spaceship.DisposeProjectiles(winWidht(), winHeight());
 	spaceship.updateProjectiles();
